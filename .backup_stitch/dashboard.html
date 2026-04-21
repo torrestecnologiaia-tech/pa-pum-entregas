@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Pa Pum Entregas</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#6c5a00",
+              "primary-fixed": "#ffd709",
+              "secondary": "#5c5b5b",
+              "on-surface": "#2f2f2f",
+              "surface": "#f6f6f6",
+              "surface-container": "#e8e8e8",
+              "surface-container-low": "#f1f1f1",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#e2e2e2",
+              "outline-variant": "rgba(173, 173, 173, 0.15)",
+              "tertiary-container": "#e3fd74",
+              "on-tertiary-container": "#516000",
+            },
+            fontFamily: {
+              headline: ["Plus Jakarta Sans", "sans-serif"],
+              body: ["Plus Jakarta Sans", "sans-serif"],
+              label: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              'full': '9999px',
+              'lg': '16px',
+              'md': '12px',
+              'sm': '8px',
+            },
+          },
+        },
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;0,800;1,800&family=Inter:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+      }
+      .kinetic-gradient {
+        background: linear-gradient(45deg, #6c5a00 0%, #ffd709 100%);
+      }
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+      }
+      /* Custom shadow per DESIGN.md */
+      .ambient-shadow {
+        box-shadow: 0 8px 24px rgba(47, 47, 47, 0.06);
+      }
+      /* Entrance animations */
+      @keyframes staggerIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-stagger {
+        animation: staggerIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        opacity: 0;
+      }
+      .stagger-1 { animation-delay: 0.1s; }
+      .stagger-2 { animation-delay: 0.2s; }
+      .stagger-3 { animation-delay: 0.3s; }
+      .stagger-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen pb-24">
+    
+    <!-- Top Header -->
+    <header class="px-6 pt-12 pb-4 animate-stagger stagger-1">
+        <div class="flex justify-between items-start">
+            <div>
+                <h1 class="font-headline font-black text-3xl tracking-tighter">
+                    Olá, <span class="text-primary-fixed drop-shadow-sm">Ricardo</span> 👋
+                </h1>
+                <p class="text-secondary font-medium tracking-tight mt-1">O que vamos entregar hoje?</p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+                <span class="material-symbols-outlined text-secondary">notifications</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Active Tracking Section -->
+    <section class="px-6 mt-6 animate-stagger stagger-2">
+        <div class="bg-surface-container rounded-lg p-1">
+            <div class="bg-surface-container-lowest rounded-md p-6 ambient-shadow">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-sm text-[10px] font-bold uppercase tracking-widest">Em tempo real</span>
+                    <span class="material-symbols-outlined text-primary-fixed">bolt</span>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <p class="font-label text-[10px] uppercase text-secondary tracking-widest font-bold">Pedido #8824</p>
+                        <h2 class="font-headline font-extrabold text-xl mt-1">O entregador está chegando!</h2>
+                    </div>
+                    <div class="flex items-center gap-4 py-2">
+                        <div class="w-10 h-10 rounded-full bg-primary-fixed/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary">local_shipping</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg leading-none">Previsão: <span class="text-primary">4 min</span></p>
+                            <p class="text-[12px] text-secondary mt-1">Distância: 1.2 km</p>
+                        </div>
+                    </div>
+                    <div class="h-1 bg-surface-container rounded-full overflow-hidden">
+                        <div class="h-full kinetic-gradient w-[85%] rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions Grid -->
+    <section class="px-6 mt-8 grid grid-cols-2 gap-4 animate-stagger stagger-3">
+        <!-- New Delivery -->
+        <button class="col-span-2 group relative overflow-hidden bg-surface-container rounded-lg p-8 text-left transition-transform active:scale-95">
+            <div class="absolute top-[-20%] right-[-10%] w-40 h-40 bg-primary-fixed/10 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-700"></div>
+            <div class="relative z-10">
+                <div class="w-12 h-12 rounded-full kinetic-gradient flex items-center justify-center mb-4 shadow-lg shadow-primary-fixed/20">
+                    <span class="material-symbols-outlined text-white">add</span>
+                </div>
+                <h3 class="font-headline font-black text-2xl tracking-tighter uppercase italic">Nova Entrega</h3>
+                <p class="text-secondary text-sm mt-1 max-w-[140px]">Envie hoje mesmo com a precisão Pa Pum.</p>
+            </div>
+            <span class="absolute right-6 bottom-6 material-symbols-outlined text-primary-fixed text-4xl opacity-20 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+        </button>
+
+        <!-- Quote -->
+        <button class="bg-surface-container-lowest rounded-lg p-5 ambient-shadow text-left transition-transform active:scale-95">
+            <span class="material-symbols-outlined text-secondary mb-3">calculate</span>
+            <p class="font-headline font-bold text-lg leading-tight tracking-tight">Simular Valor</p>
+        </button>
+
+        <!-- Address -->
+        <button class="bg-surface-container-lowest rounded-lg p-5 ambient-shadow text-left transition-transform active:scale-95">
+            <span class="material-symbols-outlined text-secondary mb-3">map</span>
+            <p class="font-headline font-bold text-lg leading-tight tracking-tight">Meus Locais</p>
+        </button>
+    </section>
+
+    <!-- Recent History -->
+    <section class="px-6 mt-10 animate-stagger stagger-4">
+        <h3 class="font-headline font-black text-xl tracking-tighter uppercase mb-4 px-2">Histórico Recente</h3>
+        <div class="space-y-4">
+            <!-- Item 1 -->
+            <div class="bg-surface-container-lowest rounded-lg p-5 ambient-shadow flex items-center justify-between group">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+                        <span class="material-symbols-outlined text-secondary">receipt_long</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-md leading-tight">Documentos Fiscais</h4>
+                        <p class="font-label text-[12px] text-secondary mt-1">12 Out, 14:30 • <span class="text-primary font-bold">Entregue</span></p>
+                    </div>
+                </div>
+                <p class="font-headline font-black text-lg italic">R$ 18,50</p>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="bg-surface-container rounded-lg p-5 flex items-center justify-between opacity-70">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center">
+                        <span class="material-symbols-outlined text-secondary">shopping_basket</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-md leading-tight">Mercado Central</h4>
+                        <p class="font-label text-[12px] text-secondary mt-1">10 Out, 09:15 • <span class="text-error font-bold">Cancelado</span></p>
+                    </div>
+                </div>
+                <p class="font-headline font-black text-lg italic">R$ 42,90</p>
+            </div>
+            
+            <!-- Item 3 -->
+            <div class="bg-surface-container-lowest rounded-lg p-5 ambient-shadow flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+                        <span class="material-symbols-outlined text-secondary">restaurant</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-md leading-tight">Almoço Executivo</h4>
+                        <p class="font-label text-[12px] text-secondary mt-1">08 Out, 12:45 • <span class="text-primary font-bold">Entregue</span></p>
+                    </div>
+                </div>
+                <p class="font-headline font-black text-lg italic">R$ 24,00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 left-0 right-0 glass-nav border-t border-outline-variant px-8 py-4 flex justify-between items-center z-50">
+        <div class="flex flex-col items-center gap-1">
+            <span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">speed</span>
+            <span class="font-label text-[9px] font-bold uppercase tracking-widest text-primary">Início</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 text-secondary">
+            <span class="material-symbols-outlined">receipt_long</span>
+            <span class="font-label text-[9px] font-bold uppercase tracking-widest">Pedidos</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 text-secondary">
+            <span class="material-symbols-outlined">local_shipping</span>
+            <span class="font-label text-[9px] font-bold uppercase tracking-widest">Rastreio</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 text-secondary">
+            <span class="material-symbols-outlined">person</span>
+            <span class="font-label text-[9px] font-bold uppercase tracking-widest">Perfil</span>
+        </div>
+    </nav>
+
+    <!-- Background Accents -->
+    <div class="fixed inset-0 pointer-events-none z-[-1]">
+        <div class="absolute top-[20%] left-[-10%] w-[50%] h-[50%] bg-primary-fixed/5 rounded-full blur-[100px]"></div>
+    </div>
+
+</body>
+</html>
