@@ -10,7 +10,7 @@ yarn-error.log*
 *.apk
 *.aab
 *.dex
-android/
+# android/ (removed to allow commit for Android Studio)
 
 # iOS artifacts
 ios/
